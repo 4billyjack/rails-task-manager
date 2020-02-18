@@ -1,0 +1,24 @@
+
+
+<div>
+  <div class="p-5">
+    <div class="d-flex justify-content-end mt-4 w-50">
+      <div class="btn btn-light"><i class="mt-2 fas fa-pencil-alt pl-1 mr-2"></i><%= link_to "Edit this Task", edit_task_path %></div>
+    </div>
+    <div class="container ml-2">
+
+      <h1 class="display-4"><%= @task.title %></h1>
+
+      <p class="details pt-4 pb-4 pl-3 w-75 ml-4 rounded"><%= @task.details %></p>
+
+      <% if @task.completed %>
+        <div class="d-flex flex-row ml-4"><i class="mt-2 far fa-check-square pl-1"></i><p class="m-1">This task is completed.</p></div>
+      <% else %>
+        <div class="d-flex flex-row ml-4"><i class="mt-2 far fa-square pl-1"></i><p class="m-1">This task is not completed yet.</p></div>
+      <% end %>
+
+      <p class="pt-4 pb-4 pl-3 ml-2"><%= link_to "Back to Task List", tasks_path %></p>
+    </div>
+
+  </div>
+</div>

@@ -1,0 +1,31 @@
+<div class="mt-5 container">
+  <h1 class="display-4">My Tasks</h1>
+  <ul class="list-unstyled">
+    <% @tasks.each do |task| %>
+      <% if task.completed %>
+        <div class="d-flex flex-row">
+          <i class="fop mt-2 far fa-check-square"></i>
+          <li class="m-1"><%= link_to task.title, display_task_path(task) %></li>
+            <%= link_to task_path(task), method: :delete, data: { confirm: "Delete #{task.title}" } do %>
+              - <i class="pt-2 far fa-trash-alt"></i>
+            <% end %>
+        </div>
+      <% else %>
+        <div class="d-flex flex-row">
+          <i class="fop mt-2 far fa-square"></i>
+          <li class="m-1"><%= link_to task.title, display_task_path(task) %></li>
+            <%= link_to task_path(task), method: :delete, data: { confirm: "Delete #{task.title}" } do %>
+              - <i class="pt-2 far fa-trash-alt"></i>
+            <% end %>
+        </div>
+
+      <% end %>
+    <% end %>
+  </ul>
+
+  <div class="d-flex border-top"><i class="fop mt-1 mr-2 fas fa-plus"></i><p><%= link_to "Add a new task", new_path %></p>
+
+  </div>
+
+
+</div>
